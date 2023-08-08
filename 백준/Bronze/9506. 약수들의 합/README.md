@@ -34,3 +34,4 @@
 
 <p>n이 완전수가 아니라면 n is NOT perfect. 를 출력한다.</p>
 
+[효율적인 코드 참고](https://www.acmicpc.net/source/64617317)
