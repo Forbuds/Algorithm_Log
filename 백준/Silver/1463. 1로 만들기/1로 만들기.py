@@ -24,14 +24,11 @@ else:
 
 
     for i in range(4,n+1):
-        arr = []
+        dp[i] = dp[i-1] + 1  # append연산이 오래 걸리니까 min을 취해주는 형식으로 변경
         if i%2==0:
-            arr.append(dp[i//2])
+            dp[i] = min(dp[i//2]+1, dp[i])
         if i%3==0:
-            arr.append(dp[i//3])
-        arr.append(dp[i-1])
-        # print(i, arr)
-        dp[i] = min(arr)+1
+            dp[i] = min(dp[i//3]+1, dp[i])
 
     # print(dp)
     print(dp[n])
