@@ -1,14 +1,13 @@
+# Counter 활용
 import sys
+from collections import Counter
 input = sys.stdin.readline
 
 n = int(input())
 arr = list(map(int, input().strip().split()))
-arr.sort()
 m = int(input())
 targets = list(map(int, input().strip().split()))
 
-dp ={}
-for i in arr:
-    dp[i] = dp.get(i,0)+1
-for i in targets:
-    print(dp.get(i,0),end=' ')
+arr = Counter(arr)
+# print(arr)
+print(' '.join(f'{arr[i]}' if i in arr else '0' for i in targets))
