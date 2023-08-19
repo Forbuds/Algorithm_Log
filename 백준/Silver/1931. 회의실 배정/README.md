@@ -22,4 +22,5 @@
 
  <p>첫째 줄에 최대 사용할 수 있는 회의의 최대 개수를 출력한다.</p>
 
-[효율적인 코드 참고](https://www.acmicpc.net/source/65145744)
+[효율적인 코드 참고](https://www.acmicpc.net/source/65145744)    
+- 참고: sort를 end기준으로 해야 한다.
