@@ -38,7 +38,7 @@
 
 해당 값이 index에 있을 때는 left(해당), right(+1)을 반환해 주지만, 해당 값이 리스트에 없을 때는 리스트 오름차순에 들어갈 index를 반환해 준다. [ref](https://ssooyn.tistory.com/11)    
 
-[공식 문서](https://docs.python.org/ko/3/library/bisect.html)    
+[bisect 공식 문서](https://docs.python.org/ko/3/library/bisect.html)      
 
-
+발전 사항 - 반복문으로 풀어 볼 것
 
