@@ -34,3 +34,11 @@
 
  <p>첫째 줄에 남아있는 병사의 수가 최대가 되도록 하기 위해서 열외해야 하는 병사의 수를 출력한다.</p>
 
+[bisect](https://ryong9rrr.github.io/bo18353-%EB%B3%91%EC%82%AC-%EB%B0%B0%EC%B9%98%ED%95%98%EA%B8%B0/) 유의점: 오름차순으로 정렬된 리스트에서 사용해 주어야 한다.    
+
+해당 값이 index에 있을 때는 left(해당), right(+1)을 반환해 주지만, 해당 값이 리스트에 없을 때는 리스트 오름차순에 들어갈 index를 반환해 준다. [ref](https://ssooyn.tistory.com/11)    
+
+[공식 문서](https://docs.python.org/ko/3/library/bisect.html)    
+
+
+
