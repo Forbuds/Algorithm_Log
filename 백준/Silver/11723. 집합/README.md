@@ -33,3 +33,4 @@
 
  <p><code>check</code> 연산이 주어질때마다, 결과를 출력한다.</p>
 
+[비트마스킹](https://velog.io/@1998yuki0331/Python-%EB%B9%84%ED%8A%B8-%EB%A7%88%EC%8A%A4%ED%82%B9-%EC%A0%95%EB%A6%AC)
