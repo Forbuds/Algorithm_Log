@@ -1,4 +1,5 @@
 import sys
+from bisect import bisect_left
 input = sys.stdin.readline
 n = int(input())
 arr = list(map(int, input().strip().split()))
@@ -9,13 +10,6 @@ for i in range(1,n):
     if q[-1] < x:
         q.append(x)
     else:
-        s = 0
-        e = len(q)
-        while s<e:
-            mid = (s+e)//2
-            if x <= q[mid]:
-                e = mid
-            else:
-                s = mid+1
-        q[s] = x
+        index = bisect_left(q,x)
+        q[index] = x
 print(n-len(q))
