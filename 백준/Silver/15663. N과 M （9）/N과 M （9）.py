@@ -1,28 +1,22 @@
 import sys
 input = sys.stdin.readline
-
-n,m = map(int, input().strip().split())
-arr= list(map(int, input().strip().split()))
-arr= sorted(arr)
-# print(arr)
+n, m = map(int, input().strip().split())
+arr = sorted(list(map(int, input().strip().split())))
 s = []
-result = []
 v = [0]*(n)
-def comb(l,index):
+def per(l,index):
+    tmp = 0
     if l==m:
-        # print(' '.join(map(str,s)))
-        result.append(s[:])
+        print(' '.join(map(str,s)))
         return
     else:
-        for i in range(len(arr)):
-
-            if v[i]==0:
-                s.append(arr[i])
+        for i in range(n):
+            if v[i]==0 and tmp!=arr[i]:
+                tmp = arr[i]
                 v[i] = 1
-                comb(l+1, index+1)
-                s.pop()
+                s.append(arr[i])
+                per(l+1,i)
                 v[i] = 0
+                s.pop()
 
-comb(0,0)
-for k in sorted(list(set(map(tuple,result)))):
-    print(*k,sep=' ')
+per(0,0)
