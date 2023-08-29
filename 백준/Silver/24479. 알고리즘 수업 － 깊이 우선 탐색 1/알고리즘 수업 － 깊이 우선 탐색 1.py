@@ -1,29 +1,34 @@
 import sys
-sys.setrecursionlimit(10**9)
+from collections import deque
 input = sys.stdin.readline
 
+n, m, r = map(int, input().strip().split())
+g = [[] for _ in range(n+1)]
+for _ in range(m):
+    a,b = map(int, input().strip().split())
+    g[a].append(b)
+    g[b].append(a)
+# print(g)
+q = deque([])
 
-n,m,r = map(int,input().split())
-g = [[] for i in range(n+1)]
-visited =[0]*(n+1)
-for i in range(m):
-    u,v = map(int,input().split())
-    g[u].append(v)
-    g[v].append(u)
-cnt = 1
-def dfs(visited,s,g):
-    global cnt
-    visited[s] = cnt
+v = [0]*(n+1)
 
-    for s_ in sorted(g[s]):
-        if visited[s_] == 0:
-            cnt += 1
-            dfs(visited,s_,g)
-    return
+def dfs(r):
+    q.append(r)
+    cnt = 1
+    v[r] = cnt
+    # print(r)
+    cnt+=1
+    while q:
+        n_c = q.pop()
+        if v[n_c] == 0:
+            # print(n_c)
+            v[n_c] =cnt
+            cnt+=1
+        for i in sorted(g[n_c], key = lambda x:-x):
+            if v[i]==0:
+                q.append(i)
 
-dfs(visited,r,g)
-for i in visited[1:]:
-    print(i)
 
-# visited = [0, 1, 2, 3, 4, 0]
-# visited[1:]
+dfs(r)
+print(*v[1:],sep='\n')
