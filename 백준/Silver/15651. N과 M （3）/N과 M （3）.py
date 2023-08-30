@@ -3,11 +3,10 @@ from collections import deque
 input = sys.stdin.readline
 
 n,m = map(int,input().strip().split())
-arr = []
 s = deque([])
 def dfs(l):
     if l==m:
-        print(*s,sep=' ')
+        print(' '.join(map(str, s)))
         return
     else:
         for i in range(n):
