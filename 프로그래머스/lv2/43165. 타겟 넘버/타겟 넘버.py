@@ -2,19 +2,19 @@ from collections import deque
 def solution(numbers, target):
     answer = 0
     
-    def dfs(l,result):
-        nonlocal answer
-        
-        if l==len(numbers):
-            if result == target:
+    q = deque([[numbers[0],0], [-1*numbers[0],0]] )
+    print(q)
+
+    tmp = 0
+    
+    while q:
+        x, idx = q.popleft()
+        if idx == len(numbers)-1:
+            if x == target:
                 answer+=1
-            return
-        
         else:
-            dfs(l+1,result+numbers[l])
-            dfs(l+1,result-numbers[l])
-        
-    dfs(0,0)
+            q.append([x + numbers[idx+1], idx+1 ])
+            q.append([x - numbers[idx+1], idx+1 ])
     
     
     return answer
