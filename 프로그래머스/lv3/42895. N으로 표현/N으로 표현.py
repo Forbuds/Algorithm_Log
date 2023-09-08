@@ -7,7 +7,7 @@ def solution(N, number):
     # dp[3] = dp[2] * 
     for k in range(1,9):
         tmp = [int(str(N)*k)]
-        for i in range(1,k):
+        for i in range(1,k//2+1):
             for x in dp[i]:
                 for y in dp[k-i]:
                     tmp.append(x+y)
