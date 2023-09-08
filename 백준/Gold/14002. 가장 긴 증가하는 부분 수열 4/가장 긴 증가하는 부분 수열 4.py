@@ -3,7 +3,7 @@ import copy
 input = sys.stdin.readline
 n = int(input())
 arr = list(map(int, input().strip().split()))
-dp = [[arr[i]] for i in range(n)]
+dp = [1 for i in range(n)]
 def max_(a,b):
     if len(a) < len(b):
         return b
@@ -13,12 +13,12 @@ def max_(a,b):
 for i in range(1,n):
     for j in range(i):
         if arr[i] > arr[j]:
-            tmp = copy.deepcopy(dp[j])
-            tmp.extend([arr[i]])
-            dp[i] = max_(dp[i], tmp)
-
-len_list = [(len(x),x) for x in dp]
-k,l = sorted(len_list)[-1]
-
+            dp[i] = max(dp[i], dp[j]+1)
+k = max(dp)
 print(k)
-print(' '.join(map(str,l)))
+result  = []
+for i in range(n-1,-1,-1):
+    if dp[i] == k:
+        result.append(arr[i])
+        k-=1
+print(*sorted(result))
