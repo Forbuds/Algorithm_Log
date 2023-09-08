@@ -65,5 +65,7 @@ Empty
 
 <p>※ 공지 - 2019년 9월 4일 문제에 새로운 테스트 케이스를 추가하였습니다. 도움을 주신 weaver9651 님께 감사드립니다.</p>
 
+[참고](https://jie0025.tistory.com/204)
+
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
