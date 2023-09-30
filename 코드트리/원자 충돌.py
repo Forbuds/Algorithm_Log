@@ -5,7 +5,7 @@ result = 0
 for _ in range(m):
     x, y, m, s, d = map(int, input().strip().split())
     x, y = x - 1, y - 1
-    g[x][y] = [(m, s, d)]  # 격자가 최선이 아닐 수도?
+    g[x][y] = [(m, s, d)]  # 격자가 최선이 아닐 수도?    # ✅ 어차피 격자가 작아서, 격자로 탐색해도 충분, arr 를 하나 격자를 하나 별 타격 없음
     arr.append(tuple([x,y,m,s,d]))
 # print(g)
 
@@ -65,6 +65,14 @@ def remain(g):
                 # print(g[x][y])
                 for l in g[x][y]:
                     result += l[0]
+
+    # ✅ 위랑 같은데, 이렇게도 가능함
+    result = sum([
+        weight
+        for i in range(n)
+        for j in range(n)
+        for weight, _, _ in g[i][j]
+    ])
 
 def printg(g):
     for i in range(len(g)):
