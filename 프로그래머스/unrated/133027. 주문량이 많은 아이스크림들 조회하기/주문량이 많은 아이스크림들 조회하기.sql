@@ -1,0 +1,23 @@
+-- 코드를 입력하세요
+-- 제대로 안풀었다. 고민해봐야 할 듯 (남의 코드 뜯어보자)
+SELECT A.FLAVOR  #,A.SHIPMENT_ID, A.FLAVOR, SUM(A.TOTAL_ORDER) AS TOTAL_ORDER
+
+FROM (SELECT *
+        FROM FIRST_HALF AS F 
+
+        UNION
+
+        SELECT *
+        FROM JULY AS J) AS A
+        
+GROUP BY A.FLAVOR
+ORDER BY SUM(A.TOTAL_ORDER) DESC
+LIMIT 3
+
+
+
+# 3840
+# SELECT * FROM JULY
+# GROUP BY 
+# UNION 
+# SELECT * FROM FIRST_HALF 
