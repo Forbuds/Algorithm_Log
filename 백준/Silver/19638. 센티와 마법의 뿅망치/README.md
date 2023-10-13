@@ -38,3 +38,5 @@
 
 <p>마법의 뿅망치를 센티의 전략대로 남은 횟수 전부 이용하고도 거인의 나라에서 센티보다 키가 크거나 같은 거인이 있는 경우, 첫 번째 줄에 <span style="color:#e74c3c;"><code><span style="background-color:#ecf0f1;">NO</span></code></span>를 출력하고, 두 번째 줄에 마법의 뿅망치 사용 이후 거인의 나라에서 키가 가장 큰 거인의 키를 출력한다.</p>
 
+[효율적인 코드 참고](https://www.acmicpc.net/source/66216122)
+
