@@ -1,5 +1,5 @@
 import sys
-from heapq import heappop,heappush,heapify
+from heapq import heappop,heappush,heapify, heapreplace
 input = sys.stdin.readline
 
 n,h,t = map(int, input().strip().split())
@@ -7,23 +7,17 @@ n,h,t = map(int, input().strip().split())
 
 c = [-1*int(input()) for i in range(n)]
 heapify(c)
-flag = True
-if h> abs(c[0]):
+cnt = 0
+for i in range(t):
+    if -c[0] == 1 or -c[0] < h:
+        break
+    else:
+        heapreplace(c, -int(-c[0]//2))
+        cnt+=1
+
+if h > -c[0]:
     print('YES')
-    print(0)
+    print(cnt)
 else:
-
-    for i in range(t):
-        height = heappop(c)
-        heappush(c, int(height/2) if height<-1 else height)
-
-        if h > abs(c[0]):
-            print('YES')
-            print(i+1)
-            flag = False
-            break
-    
-    answer = abs(heappop(c))
-    if h <= answer and flag:
-        print('NO')
-        print(answer)
+    print('NO')
+    print(-c[0])
