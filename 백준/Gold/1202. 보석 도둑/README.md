@@ -36,3 +36,6 @@
 
  <p>첫째 줄에 상덕이가 훔칠 수 있는 보석 가격의 합의 최댓값을 출력한다.</p>
 
+
+[백준 효율적인 코드 참고](https://www.acmicpc.net/source/67979230)
+[참고했던 블로그](https://bio-info.tistory.com/195)
