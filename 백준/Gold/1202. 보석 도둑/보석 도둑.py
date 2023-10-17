@@ -1,4 +1,4 @@
-# 보석담기? https://bio-info.tistory.com/195
+# bag는 list로 순회
 import sys
 from heapq import heappush,heappop, heapify
 input = sys.stdin.readline
@@ -12,7 +12,7 @@ for i in range(n):
 
 for i in range(k):
     bags.append(int(input()))
-heapify(bags)
+# heapify(bags)
 heapify(jus)
 
 # 보석은 가격이 높은 순 -> 그 다음엔 무게 순
@@ -20,8 +20,8 @@ heapify(jus)
 
 tmp = []
 result = 0
-for _ in range(k):
-    bag = heappop(bags)  # 작은거 뽑기
+for bag in sorted(bags):
+    # bag = heappop(bags)  # 작은거 뽑기
     # print(bag)
     while 1:
         if jus and jus[0][0] <= bag:
