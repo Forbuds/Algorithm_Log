@@ -5,20 +5,15 @@ arr = list(map(int,input().strip().split()))
 
 s,e = 0,1
 cnt = 0
-while s<=e:
+while s<=e and e<=n :
     # print(s,e)
-    if e!=n:
-        if sum(arr[s:e]) < m:
-            e +=1
-        elif sum(arr[s:e]) == m:
-            cnt +=1
-            s+=1
-        else:
-            s +=1
+    total =sum(arr[s:e])
+    if total ==m:
+        cnt +=1
+        s+=1
+    elif total < m:
+        e +=1
     else:
-        if sum(arr[s:e]) == m:
-            cnt += 1
-            s += 1
-        else:
-            s +=1
+        s +=1
+
 print(cnt)
