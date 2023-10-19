@@ -2,21 +2,20 @@ import sys
 input = sys.stdin.readline
 n = int(input())
 # print(arr)
-s,e = 1,1
+start,end = 1,1
 total = 1
 cnt = 0
 
-while s<=e and e < n:
-    # print(s,e)
-    if total == n:
-        cnt +=1
-        e += 1
-        total += e
-    elif total < n:
-        e +=1
-        total += e
+while end < n:
+    if total < n:
+        end += 1
+        total += end
     elif total > n:
-        total -= s
-        s += 1
+        total -= start
+        start += 1
+    else:
+        cnt += 1
+        end += 1
+        total += end
 
 print(cnt +1)
