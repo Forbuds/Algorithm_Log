@@ -1,21 +1,18 @@
 import sys
 input = sys.stdin.readline
-n,m = map(int, input().strip().split())
-# print(n,m)
-s =[]
-v = [0]*(n)
-def dfs():
-    if(len(s)==m):
+n, m = map(int, input().strip().split())
+v = [0]*n
+def dfs(c,l):
+    if len(s)==m:
         print(' '.join(map(str,s)))
+        return
     else:
-        for i in range(n):
+        for i in range(0,n):
             if v[i]==0:
                 s.append(i+1)
                 v[i]=1
-                dfs()
+                dfs(i+1,l+1)
                 s.pop()
                 v[i] = 0
-            else:
-                pass
-
-dfs()
+s = []
+dfs(0,0)
