@@ -1,20 +1,18 @@
 import sys
 input = sys.stdin.readline
-
-n,m = map(int, input().strip().split())
-
-g = list(map(int, input().strip().split()))
-# print(n,m,g)
-g = sorted(list(set(g)))
-# print(g,'dddddd')
+n, m = map(int, input().strip().split())
+arr = list(map(int, input().strip().split()))
+arr = sorted(arr)
 s = []
-def dfs(c):
-    if len(s)==m:
+def dfs(c,l):
+    if l==m:
         print(' '.join(map(str,s)))
-    else :
-        for i in range(c,len(g)):
-            s.append(g[i])
-            dfs(i)
-            s.pop()
-
-dfs(0)
+        return
+    else:
+        tmp = 0
+        for i in range(c,n):
+            if tmp != arr[i]:
+                s.append(arr[i])
+                dfs(i,l+1)
+                tmp = s.pop()
+dfs(0,0)
