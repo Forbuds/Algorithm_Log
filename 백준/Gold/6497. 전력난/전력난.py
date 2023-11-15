@@ -19,16 +19,11 @@ while 1:
         break
     else:
         parent = [i for i in range(m)]
-        edges = []
-        cnt = 0
-        for i in range(n):
-            a,b,cost = map(int, input().strip().split())
-            edges.append((cost,a,b))
-            cnt += cost
-        edges = sorted(edges)
+        edges = sorted([tuple(map(int, input().split()))
+                       for _ in range(n)], key=lambda x: x[2])
         result = 0
         for edge in edges:
-            cost, a, b = edge
+            a, b, cost = edge
             if find(parent,a) == find(parent,b):
                 result +=cost
                 continue
