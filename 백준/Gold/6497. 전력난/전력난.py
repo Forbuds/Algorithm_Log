@@ -29,8 +29,9 @@ while 1:
         result = 0
         for edge in edges:
             cost, a, b = edge
-            if find(parent,a) != find(parent,b):
-                union(parent,a,b)
-            else:
+            if find(parent,a) == find(parent,b):
                 result +=cost
+                continue
+            else:
+                union(parent, a, b)
         print(result)
