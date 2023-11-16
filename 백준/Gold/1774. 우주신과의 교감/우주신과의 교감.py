@@ -24,7 +24,7 @@ for i in range(n):
 edges = []                                                  # 거리 정보가 주어지지 않았으므로 직접 구해야 한다. nC2로
 for x in combi([i+1 for i in range(n)],2):
     a,b = x
-    s = pow(pow(points[a][0]-points[b][0],2)+pow(points[a][1]-points[b][1],2),0.5)
+    s = ((points[a][0]-points[b][0])**2+(points[a][1]-points[b][1])**2)**0.5
     edges.append(( s, a,b))
 edges = sorted(edges)                            # 정렬 - 크루스칼 쓰기 위해
 
