@@ -1,15 +1,16 @@
 import sys
 import heapq as hq
+from collections import defaultdict
 input = sys.stdin.readline
 
 n, e = map(int,input().strip().split())
-g = [[] for _ in range(n)]
+g = defaultdict(lambda: defaultdict(dict))
 INF = int(1e9)
 
 for _ in range(e):
     a,b, cost = map(int,input().strip().split())
-    g[a-1].append((b-1,cost))
-    g[b-1].append((a-1,cost))
+    g[a-1][b-1] = cost
+    g[b-1][a-1] = cost
 a,b =     map(int,input().strip().split())
 a,b = a-1,b-1
 
@@ -21,7 +22,7 @@ def dijkstra(start,end):
         dist, n_c = hq.heappop(q)
         if distance[n_c] < dist:
             continue
-        for node, cost in g[n_c]:
+        for node, cost in g[n_c].items():
             cost += dist
             if cost < distance[node]:
                 distance[node] = cost
