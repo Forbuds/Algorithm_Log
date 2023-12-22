@@ -1,49 +1,63 @@
 import sys
-import heapq as hq
 from collections import defaultdict
+from heapq import heappush, heappop
+
 input = sys.stdin.readline
 
-n, e = map(int,input().strip().split())
-g = defaultdict(lambda: defaultdict(dict))
-INF = int(1e9)
 
-for _ in range(e):
-    a,b, cost = map(int,input().strip().split())
-    g[a-1][b-1] = cost
-    g[b-1][a-1] = cost
-a,b =     map(int,input().strip().split())
-a,b = a-1,b-1
 def solution():
-    def dijkstra(start):
-        distance = [INF]*n
+    n, e = map(int, input().split())
+
+    graph = defaultdict(lambda: defaultdict(dict))
+    for _ in range(e):
+        a, b, c = map(int, input().split())
+        graph[a][b] = c
+        graph[b][a] = c
+
+    v1, v2 = map(int, input().split())
+    INF = 1000000000
+
+    def bfs(start):
+        distance = [INF] * (n + 1)
+        q = []
+
         distance[start] = 0
-        q = [(0,start)]
+        heappush(q, (0, start))
+
         while q:
-            dist, n_c = hq.heappop(q)
-            if distance[n_c] < dist:
+            dist, now = heappop(q)
+
+            if dist > distance[now]:
                 continue
-            for node, cost in g[n_c].items():
-                cost += dist
-                if cost < distance[node]:
-                    distance[node] = cost
-                    hq.heappush(q,(cost,node))
+
+            for b, cost in graph[now].items():
+                cost = dist + cost
+                if cost < distance[b]:
+                    distance[b] = cost
+                    heappush(q, (cost, b))
+
         return distance
 
-    from_start = dijkstra(0)
-    if from_start[a]>= INF or from_start[b]>=INF:
-        return -1
-    from_a = dijkstra(a)
-    if from_a[b]>= INF or from_a[n-1]>= INF:
-        return -1
-    from_b = dijkstra(b)
-    if from_b[a]>= INF or from_b[n-1]>= INF:
-        return -1
-    path1 = from_start[a] + from_a[b] + from_b[n-1]
-    path2 = from_start[b] + from_b[a] + from_a[n-1]
-    result = min(path1,path2)
-    if result >= INF:
-        return -1
-    else:return result
+    def cal_result():
+        from_start = bfs(1)
+        if from_start[v1] >= INF and from_start[v2]:
+            return -1
+        from_v1 = bfs(v1)
+        if from_v1[v2] >= INF and from_v1[n] >= INF:
+            return -1
+        from_v2 = bfs(v2)
+        if from_v2[v1] >= INF and from_v2[n] >= INF:
+            return -1
+        ptn1 = from_start[v1] + from_v1[v2] + from_v2[n]
+        ptn2 = from_start[v2] + from_v2[v1] + from_v1[n]
+
+        res = min(ptn1, ptn2)
+        if res < INF:
+            return res
+        else:
+            return -1
+
+    print(cal_result())
 
 
-print(solution())
+solution()
