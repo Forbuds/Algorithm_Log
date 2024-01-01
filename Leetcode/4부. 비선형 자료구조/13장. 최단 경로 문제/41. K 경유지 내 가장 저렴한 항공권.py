@@ -1,3 +1,7 @@
+https://leetcode.com/problems/cheapest-flights-within-k-stops/description/
+
+787. Cheapest Flights Within K Stops : Medium
+
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
         import heapq as hq
