@@ -10,7 +10,7 @@ int main() {
 
     for(int i=0;i<10;i++){
         scanf("%d",&tmp);
-        if(tmp==0 || i==9){
+        if(tmp==0){
             printf("%d %d",cnt,s);
             break;
         }
@@ -18,6 +18,9 @@ int main() {
         if(tmp%2==0){
             cnt+=1;
             s+=tmp;
+            if(i==0){
+                printf("%d %d",cnt,s);
+            }
         }
     }
     return 0;
