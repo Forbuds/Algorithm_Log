@@ -12,7 +12,9 @@ int main() {
         scanf("%d",&tmp);
         if(tmp==0 || i==9){
             printf("%d %d",cnt,s);
+            break;
         }
+        
         if(tmp%2==0){
             cnt+=1;
             s+=tmp;
