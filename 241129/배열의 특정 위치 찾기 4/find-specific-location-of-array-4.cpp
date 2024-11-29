@@ -18,10 +18,11 @@ int main() {
         if(tmp%2==0){
             cnt+=1;
             s+=tmp;
-            if(i==9){
+    
+        }
+        if(i==9){
                 printf("%d %d",cnt,s);
             }
-        }
     }
     return 0;
 }
