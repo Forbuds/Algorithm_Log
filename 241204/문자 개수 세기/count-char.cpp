@@ -6,15 +6,15 @@ int main() {
     char s[100], c;
     int cnt=0,i=0;
     scanf("%[^\n]", s);
-    cin>>c;
+    getchar();
+    scanf("%c",&c);
 
-    //printf("%c\n",c);
+    // printf("%c\n",c);
     while(1)
     {
-        //printf("%c",s[i]);
+        // printf("%c",s[i]);
         if(s[i] == c){
             cnt+=1;
-            //printf("--");
         }
         if(s[i] == '\0'){
             break;
