@@ -1,38 +1,34 @@
+// c++ 풀이! 내가 짠 코드는 이전 코드임
+
 #include <iostream>
-#include <string.h>
 #include <stack>
+#include <string>
+
 using namespace std;
 
+// 변수 선언
+string str;
+stack<char> s;  
+
 int main() {
-    // 여기에 코드를 작성해주세요.
-    char s[50];
-    cin>>s;
-    stack<char> stk;
+    // 입력:
+    cin >> str;
 
-    for(int i=0;i<strlen(s);i++)
-    {
-        if(s[i]=='(')
-        {
-            stk.push(s[i]);
-
-        }
-        else
-        {
-            if(stk.empty())
-            {
-                printf("No");
+    for(int i = 0; i < (int) str.size(); i++) {
+        if(str[i] == '(')
+            s.push('(');
+        else {
+            if(s.empty()) {
+                cout << "No";
                 return 0;
             }
-            stk.pop();
-            
+            s.pop();
         }
     }
-    if(stk.empty()){
-        printf("Yes");
-    }
-    else{
-        printf("No");
-    }
 
+    if(s.empty())
+        cout << "Yes";
+    else
+        cout << "No";
     return 0;
 }
