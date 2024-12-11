@@ -9,7 +9,7 @@ int uf[MAX_N +1];
 int Find(int x)
 {
     if (uf[x] == x) return x;
-    return uf[x] = find(uf[x]);
+    return uf[x] = Find(uf[x]);
     //x가 루트라면 그대로 루트 반환
     // x가 아니라면 find 찿아서 (경로 압축) ㅌrk 루트로 바로 가도록
 }
