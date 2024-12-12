@@ -18,7 +18,7 @@ struct Node{
 
 };
 
-void dijkstra(vector<vector<pii>> &g, int source)
+void dijkstra(vector<vector<pii>> &g)
 {
     q.push({0,k});
     int dist[n+1];
@@ -48,11 +48,15 @@ void dijkstra(vector<vector<pii>> &g, int source)
         }
     }
 
-    if (dist[source] == INT_MAX)
-        cout << -1<<endl;
-    else
-        cout << dist[source] << endl;
-        
+    for(int i=1;i<n+1;i++)
+        {
+            if (dist[i] == INT_MAX)
+                cout << -1<<endl;
+            else
+                cout << dist[i] << endl;
+            
+            
+        }
 }
 
 int main() {
@@ -69,12 +73,9 @@ int main() {
         G[s].push_back({e,c});
         G[e].push_back({s,c});
     }
+    dijkstra(G);
+
     
-    for(int i=1;i<n+1;i++)
-    {
-        
-        dijkstra(G,i);
-        
-    }
+    
     return 0;
 }
