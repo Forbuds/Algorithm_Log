@@ -49,7 +49,7 @@ void dijkstra(vector<vector<pii>> &g, int source)
     }
 
     if (dist[source] == INT_MAX)
-        cout << "INF "<<endl;
+        cout << -1<<endl;
     else
         cout << dist[source] << endl;
         
