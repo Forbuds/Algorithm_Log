@@ -17,10 +17,7 @@ int main() {
         cin>>order;
         if(order== "add"){
             cin>>a>>b;
-            if(m.find(a) !=m.end()){
-                m.erase(a);
-            }
-            m.insert({a,b});
+            m[a] = b;
         }
         else if(order == "find"){
             cin>>a;
