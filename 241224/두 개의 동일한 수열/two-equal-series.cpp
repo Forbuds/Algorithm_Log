@@ -1,10 +1,12 @@
 #include <iostream>
+#include <stdio.h>
 #include <algorithm>
 using namespace std;
 
 int main() {
     // 여기에 코드를 작성해주세요.
     int n;
+    cin>>n;
     int a1[n],a2[n];
 
     for(int i=0;i<n;i++){
@@ -20,10 +22,9 @@ int main() {
     bool B = 1;
     for(int i=0;i<n;i++){
         if (a1[i] != a2[i]) B = 0;
-
     }
 
-    if(B){printf("Yes");}
+    if(B ==1){printf("Yes");}
     else{
         printf("No");
     }
