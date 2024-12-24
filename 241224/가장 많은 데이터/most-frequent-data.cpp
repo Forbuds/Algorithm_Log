@@ -8,7 +8,7 @@ int main() {
     // 여기에 코드를 작성해주세요.
 
     int n, max_n;
-    max_n = 0;
+    max_n = 1;
     unordered_map<string, int> m;
 
     cin>>n;
