@@ -13,10 +13,16 @@ int main() {
     for(int i=0;i<2*n;i++){
         cin>>arr1[i];
     }
+    int group_max = 0;
+    int s;
+    sort(arr1, arr1+2*n);
+    for(int i=0;i<2*n;i++){
+        s = arr1[i] + arr1[2*n-1-i];
+        group_max = max(s, group_max);
+    }
+    printf("%d", group_max);
 
-    sort(arr1, arr1+n,greater<int>());
-    sort(arr1+n, arr1+2*n);
-    printf("%d", max(arr1[n-1]+arr1[2*n-1],arr1[0]+arr1[n]));
+    
 
     return 0;
 }
