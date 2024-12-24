@@ -16,7 +16,7 @@ int main() {
 
     sort(arr1, arr1+n,greater<int>());
     sort(arr1+n, arr1+2*n);
-    printf("%d", arr1[n-1]+arr1[2*n-1]);
+    printf("%d", max(arr1[n-1]+arr1[2*n-1],arr1[0]+arr1[n]));
 
     return 0;
 }
