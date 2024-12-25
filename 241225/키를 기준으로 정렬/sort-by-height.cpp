@@ -16,7 +16,7 @@ struct PER{
         PER(){};
 };
 
-bool cmp(const PER &A, const PER &B){
+int cmp(const PER &A, const PER &B){
     return A.h<B.h;
 }
 
