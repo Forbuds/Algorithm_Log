@@ -23,17 +23,15 @@ int cmp(const PER &A, const PER &B){
 int main() {
     // 여기에 코드를 작성해주세요.
     string name;
-    int h,w;
-    int n;
+    int h,w,n;
     cin>>n;
     PER arr[n];
-
 
     for(int i=0;i<n;i++){
         cin>>name>>h>>w;
         arr[i] = PER(name,h,w);
     }
-    sort(arr, arr+5, cmp);
+    sort(arr, arr+n, cmp);
     for(int i=0;i<n;i++){
         cout<<arr[i].name<<" "<<arr[i].h<<" "<<arr[i].w<<endl;;
     }
