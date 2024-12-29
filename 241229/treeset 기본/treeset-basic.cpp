@@ -40,7 +40,8 @@ int main() {
             else{cout<<"None"<<endl;}
         }
         else if(c == "smallest"){
-            cout<<*s.begin()<<endl;
+            if(s.rbegin() != s.rend()){cout<<*s.begin()<<endl;}
+            else{cout<<"None"<<endl;}
         }
 
 
