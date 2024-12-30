@@ -8,10 +8,11 @@ int main() {
 
     int T, k, n;
     string code;
-    set<int> q;
+    
 
     cin>>T;
     for(int i=0;i<T;++i){
+        set<int> q;
         cin>> k;
         for(int j=0;j<k;++j){
             cin>>code;
@@ -34,6 +35,7 @@ int main() {
         }
         if(q.size() == 0) cout<<"EMPTY"<<endl;
         else cout<<*q.rbegin()<<" "<<*q.begin()<<endl;
+        
     }
     return 0;
 }
