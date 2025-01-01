@@ -9,27 +9,21 @@ int main() {
     set<int> p;
     p.insert(0);
     cin>>n;
+    int ans = 1e9;
 
     for(int i=0;i<n;++i){
         cin>>k;
-        p.insert(k);
         auto it = p.upper_bound(k);
 
         if(it!=p.end()) {
-            //cout<<*it<<' ';
-            r = *it;
-            it--;
-            //cout<<*it<<' ';
-            l = *it;
-            if(r!=k) s.insert(r-k);
-            if(l!=k) s.insert(k-l);
-        }
-        else
-            s.insert(k);
-        
+            ans = min(ans, *it -k);
+            }
+        it--;
+        ans = min(ans,k-*it);
+        p.insert(k);
         
 
-        cout<<*s.begin()<<endl;
+        cout<<ans<<endl;
     }
     return 0;
 }
