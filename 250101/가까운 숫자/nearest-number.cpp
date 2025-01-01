@@ -21,12 +21,13 @@ int main() {
             it--;
             //cout<<*it<<' ';
             l = *it;
+            if(r!=k) s.insert(r-k);
+            if(l!=k) s.insert(k-l);
         }
+        else
+            s.insert(k);
         
-
         
-        if(r!=k) s.insert(r-k);
-        if(l!=k) s.insert(k-l);
 
         cout<<*s.begin()<<endl;
     }
