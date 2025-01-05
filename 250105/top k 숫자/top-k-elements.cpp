@@ -4,16 +4,11 @@
 using namespace std;
 
 int n, k;
-int arr[100000];
+long long arr[100000];
 
-struct cmp{
-    bool operator()(int* a, int*b ){
-        return *a > *b ;
-    }
-};
 
 int main() {
-    set<int> S;
+    set<long long> S;
     cin >> n >> k;
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
