@@ -4,11 +4,11 @@
 using namespace std;
 
 int n, k;
-long long arr[100000];
-
+int arr[100000];
+set<int> S;
 
 int main() {
-    set<long long> S;
+    
     cin >> n >> k;
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
